@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="root.dao.LoginDao">
+  
+  <select id="corporationLoginCheck" parameterType="root.dto.LoginDto" resultType="int">
+  	select count(*) from TB_ENTR where user_id=#{user_id} and password=#{user_pw} and del_yn='N'
+  </select>
+  
+  <select id="expertLoginCheck" parameterType="root.dto.LoginDto" resultType="int">
+  	select count(*) from TB_EXPT where user_id=#{user_id} and password=#{user_pw} and del_yn='N'
+  </select>  
+  
+  <select id="entrMemberSelect" parameterType="root.dto.LoginDto" resultType="root.dto.EntrDto"> 
+  	select * from TB_ENTR where user_id=#{user_id} and password=#{user_pw} and del_yn='N'
+  </select>
+  
+  <select id="exptMemberSelect" parameterType="root.dto.LoginDto" resultType="root.dto.ExptDto">
+  	select * from TB_EXPT where user_id=#{user_id} and password=#{user_pw} and del_yn='N' 
+  </select>
+  
+</mapper>

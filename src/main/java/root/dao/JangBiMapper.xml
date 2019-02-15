@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="root.dao.JangBiDao">
+
+	<sql id="search_Where">
+		<where>
+			<if test="!eq_grp.equals('null')">
+				and eq_grp=#{eq_grp }
+			</if>
+			<if test="!eq_use.equals('null')">
+				and eq_use=#{eq_use }
+			</if>
+			<if test="!eq_tech.equals('null')">
+				and eq_tech=#{eq_tech }
+			</if>
+			<if test="!eq_loc.equals('null')">
+				and eq_loc=#{eq_loc }
+			</if>
+			<if test="!keyword.equals('')">
+				and eq_nm_en like '%'||#{keyword }||'%'
+			</if>
+		</where>
+	</sql>
+
+<!-- 	전체 장비 리스트 불러오는 쿼리 -->
+	<select id="jangBiList" parameterType="root.utill.Paging" resultType="root.dto.EquipmentDto">
+		select * from
+			(select rownum bnum, b.* from
+				(select rownum anum, a.* from
+					(select rownum rnum, r.* from 
+			    		(select * from TB_EQUIPMENT order by eq_seq desc)r
+					order by rnum desc)a 
+				)b order by anum desc
+			)
+		where rnum between #{startNo } and #{endNo }
+	</select>
+	
+<!-- 	검색 후 장비 리스트 불러오는 쿼리 -->
+	<select id="jangBiSearch" parameterType="root.dto.SearchDto" resultType="root.dto.EquipmentDto">
+		select * from
+			(select rownum bnum, b.* from
+				(select rownum anum, a.* from
+					(select rownum rnum, r.* from 
+						(select * from TB_EQUIPMENT 
+						<include refid="search_Where" />
+						order by eq_seq desc)r
+					order by rnum desc)a 
+				)b order by anum desc
+			)
+		where rnum between #{startNo } and #{endNo }
+	</select>
+
+
+<!-- 	전체 게시글 갯수 구하는 쿼리 -->
+	<select id="getTotal" resultType="int">
+		select count(*) from TB_EQUIPMENT
+	</select>
+	
+<!-- 	검색 후 게시글 갯수 구하는 쿼리 -->
+	<select id="getSearchTotal" parameterType="root.dto.SearchDto" resultType="int">
+		select count(*) from TB_EQUIPMENT
+		<include refid="search_Where" />
+	</select>
+	
+	<select id="reservationCheck" parameterType="root.dto.Eq_resv" resultType="root.dto.Eq_resv">
+		<![CDATA[
+		select 
+		substr(am_pm,1,8) as resStartDate
+		, substr(am_pm,11,8) as resEndDate
+		, substr(am_pm,9,2) as am
+		, substr(am_pm,19,2) as pm
+		, a.* from (
+			select * from TB_EQ_RESV
+			where 
+			eq_seq = #{eq_seq } and
+			to_number(substr(am_pm,11,8)) >= to_number(#{resStartDate }) and
+			to_number(substr(am_pm,1,8)) <= to_number(#{resEndDate })
+		)a
+		]]>
+	</select>
+
+</mapper>

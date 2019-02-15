@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+.tBold {font-weight:bold;}
+.tBlue {color:#5565c6;}
+
+.pt100 {padding-top:100px;}
+
+.mt10 {margin-top:10px;}
+.mt24 {margin-top:24px;}
+.mt30 {margin-top:30px;}
+.mt60 {margin-top:60px;}
+.mt100 {margin-top:100px;}
+
+.mb5 {margin-bottom:5px;}
+.mb10 {margin-bottom:10px;}
+.mb15 {margin-bottom:15px;}
+.mb20 {margin-bottom:20px;}
+.mb24 {margin-bottom:24px;}
+.mb30 {margin-bottom:30px;}
+.mb40 {margin-bottom:40px;}
+.mb60 {margin-bottom:60px;}
+.mb60 {margin-bottom:60px;}
+
+.pdt50 {padding-top:50px;}
+
+.borderNone {border:none;}
+
+input.file50 {width:170px; border:none; background:none; margin:0; padding:0;}
+input.checkbox {vertical-align:-2px; cursor:pointer; border:none;}
