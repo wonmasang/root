@@ -70,8 +70,8 @@
 		select 
 		substr(am_pm,1,8) as resStartDate
 		, substr(am_pm,11,8) as resEndDate
-		, substr(am_pm,9,2) as am
-		, substr(am_pm,19,2) as pm
+		, substr(am_pm,9,2) as startTime
+		, substr(am_pm,19,2) as endTime
 		, a.* from (
 			select * from TB_EQ_RESV
 			where 
@@ -81,5 +81,21 @@
 		)a
 		]]>
 	</select>
+	
+	<select id="entrSelectMember" parameterType="root.dto.EntrDto" resultType="root.dto.EntrDto">
+		select * from TB_ENTR  where user_id=#{user_id} and empl_name=#{empl_name} and del_yn='N'
+	</select>
+	
+	<select id="jangBiSelect" parameterType="root.dto.Eq_resv" resultType="root.dto.EquipmentDto">
+		select * from TB_EQUIPMENT where eq_seq = #{eq_seq }
+	</select>
+	
+	<insert id="jangBiResvInsert" parameterType="root.dto.Eq_resv">
+		insert into TB_EQ_RESV 
+		(resv_seq, eq_seq, user_id, resv_dae, am_pm, contents, expt_id, eq_condition, sample_nm_num, disposal, reg_date, update_date, resv_state)
+		values
+		(EQ_RESV_SEQ.nextval, #{eq_seq }, #{user_id }, #{resv_dae }, #{am_pm }, #{contents }, #{expt_id }, #{eq_condition }, #{sample_nm_num }, #{disposal }, sysdate, sysdate, '1000')
+	</insert>
+	
 
 </mapper>

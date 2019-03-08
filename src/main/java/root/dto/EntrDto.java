@@ -21,7 +21,7 @@ public class EntrDto {
 	private String cor_date;
 	private int cor_count;
 	private String main_prod;
-	private int cor_turnover;
+	private long cor_turnover;
 	private String addr;
 	private String add_dtl;
 	private String zipcode;
@@ -135,10 +135,10 @@ public class EntrDto {
 	public void setMain_prod(String main_prod) {
 		this.main_prod = main_prod;
 	}
-	public int getCor_turnover() {
+	public long getCor_turnover() {
 		return cor_turnover;
 	}
-	public void setCor_turnover(int cor_turnover) {
+	public void setCor_turnover(long cor_turnover) {
 		this.cor_turnover = cor_turnover;
 	}
 	public String getAddr() {

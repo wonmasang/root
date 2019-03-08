@@ -16,6 +16,23 @@
 <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 <script type="text/javascript">
 
+// $(window).load(function() {
+	
+// // 	if(sessionScope.user_id == null ) {
+// // 		alert("로그인 후에 접근 가능합니다.");
+// // 		location.href="/main.do";
+// // 	}
+// 	console.log("aa"+session.getAttribute("user_id"));
+// 	if( session.getAttribute("user_id") == null) {
+// 		alert("로그인 후에 접근 가능합니다.");
+// 		location.href="/main.do";
+// 	}
+	
+// });
+
+
+
+
 function searchSubmit() {
 	document.getElementById("searchForm").submit();
 }
@@ -39,6 +56,20 @@ function simpleJangbi(eq_seq) {
 <title>KITECH :: 한국생산기술연구원</title>
 </head>
 <body>
+
+<%
+if(session.getAttribute("user_id")==null) {
+%>
+<script type="text/javascript">
+	alert("로그인 후에 접근 가능합니다.");
+	location.href="/main.do";
+</script>
+<%
+}
+%>
+
+
+
 
 <header>
 	<div class="top">
@@ -78,7 +109,7 @@ function simpleJangbi(eq_seq) {
 		<!-- 서브 탭 메뉴 -->
 		<ul class="sub_tab">
 			<li><a href="" class="on">뿌리장비 예약</a></li>
-			<li><a href="">뿌리장비 예약요령</a></li>
+			<li><a href="/reservation/reservationTrick.do">뿌리장비 예약요령</a></li>
 		</ul>
 		<!-- 서브 탭 메뉴 end -->
 	

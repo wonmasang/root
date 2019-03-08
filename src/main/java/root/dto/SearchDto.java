@@ -12,6 +12,29 @@ public class SearchDto {
 	private int endNo;	//게시물리스트 마지막 번호
 	
 	
+	private String searchStartDate; //장비예약조회 시작날짜
+	private String searchEndDate;	//장비예약조회 끝날짜
+	private String searchKeyword;	//장비예약조회 검색어
+	
+	
+	public String getSearchStartDate() {
+		return searchStartDate;
+	}
+	public void setSearchStartDate(String searchStartDate) {
+		this.searchStartDate = searchStartDate;
+	}
+	public String getSearchEndDate() {
+		return searchEndDate;
+	}
+	public void setSearchEndDate(String searchEndDate) {
+		this.searchEndDate = searchEndDate;
+	}
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
+	}
 	public int getStartNo() {
 		return startNo;
 	}
@@ -55,12 +78,16 @@ public class SearchDto {
 		this.keyword = keyword;
 	}
 	
-	
 	@Override
 	public String toString() {
 		return "SearchDto [eq_grp=" + eq_grp + ", eq_use=" + eq_use + ", eq_tech=" + eq_tech + ", eq_loc=" + eq_loc
-				+ ", keyword=" + keyword + ", startNo=" + startNo + ", endNo=" + endNo + "]";
+				+ ", keyword=" + keyword + ", startNo=" + startNo + ", endNo=" + endNo + ", searchStartDate="
+				+ searchStartDate + ", searchEndDate=" + searchEndDate + ", searchKeyword=" + searchKeyword + "]";
 	}
+	
+	
+
+
 	
 	
 

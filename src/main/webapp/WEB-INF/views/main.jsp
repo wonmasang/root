@@ -34,6 +34,13 @@ $(document).ready(function() {
    });
 
 
+function logout() {
+	if(confirm("로그아웃 하시겠습니까?")) {
+		location.href = "/logout.do";
+	}
+}
+
+
 </script>
 
 <title>KITECH :: 한국생산기술연구원</title>
@@ -294,10 +301,10 @@ $(document).ready(function() {
 				<c:when test="${sessionScope.type eq 11 }">
 					<fieldset>
 							<legend>로그인 이후</legend>
-							<p class="login_title"><span>${member.empl_name }</span> 님 <br>
-							안녕하세요.&nbsp;<span class="logout_btn"><a href="/logout.do">로그아웃</a></span></p>
+							<p class="login_title"><span>${sessionScope.user_name }</span> 님 <br>
+							안녕하세요.&nbsp;<span class="logout_btn"><a href="javascript://" onclick="logout();">로그아웃</a></span></p>
 							<p>&nbsp;&nbsp;&nbsp;
-								<img alt="마이페이지" src="./images/logout_icon1.png">&nbsp;<a href="#">마이페이지</a>&nbsp;&nbsp;
+								<img alt="마이페이지" src="./images/logout_icon1.png">&nbsp;<a href="/mypage/entrMypage.do">마이페이지</a>&nbsp;&nbsp;
 								<img alt="마이페이지" src="./images/logout_icon2.png">&nbsp;<a href="#">개인정보수정</a>
 							</p>
 							<div class="hit">
@@ -313,7 +320,7 @@ $(document).ready(function() {
 										<p class="title">장비활용</p>
 										<p class="hit_con">예약미승인<span>0 건</span></p>
 										<p class="hit_con">확인서미작성<span>0 건</span></p>
-									<li>
+									</li>
 								</ul>
 							</div>
 						</fieldset>
@@ -321,8 +328,8 @@ $(document).ready(function() {
 				<c:when test="${sessionScope.type eq 22 }">
 					<fieldset>
 							<legend>로그인 이후</legend>
-							<p class="login_title"><span>${member.expt_name }</span> 님 <br>
-							안녕하세요.&nbsp;<span class="logout_btn"><a href="/logout.do">로그아웃</a></span></p>
+							<p class="login_title"><span>${sessionScope.user_name }</span> 님 <br>
+							안녕하세요.&nbsp;<span class="logout_btn"><a href="javascript://" onclick="logout();">로그아웃</a></span></p>
 							<p>&nbsp;&nbsp;&nbsp;
 								<img alt="마이페이지" src="./images/logout_icon1.png">&nbsp;<a href="#">마이페이지</a>&nbsp;&nbsp;
 								<img alt="마이페이지" src="./images/logout_icon2.png">&nbsp;<a href="#">개인정보수정</a>
@@ -340,7 +347,7 @@ $(document).ready(function() {
 										<p class="title">장비활용</p>
 										<p class="hit_con">예약미승인<span>0 건</span></p>
 										<p class="hit_con">협의미예약<span>0 건</span></p>
-									<li>
+									</li>
 								</ul>
 							</div>
 						</fieldset>

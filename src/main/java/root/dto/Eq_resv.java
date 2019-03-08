@@ -5,9 +5,10 @@ import java.util.Date;
 public class Eq_resv {
 	
 	private String resStartDate;
+	private String resMiddleTime;
 	private String resEndDate;
-	private String am;
-	private String pm;
+	private String startTime;
+	private String endTime;
 
 
 	private String resv_seq;
@@ -44,18 +45,7 @@ public class Eq_resv {
 	public void setResEndDate(String resEndDate) {
 		this.resEndDate = resEndDate;
 	}
-	public String getAm() {
-		return am;
-	}
-	public void setAm(String am) {
-		this.am = am;
-	}
-	public String getPm() {
-		return pm;
-	}
-	public void setPm(String pm) {
-		this.pm = pm;
-	}
+
 	public String getResv_seq() {
 		return resv_seq;
 	}
@@ -176,18 +166,41 @@ public class Eq_resv {
 	public void setEtc(String etc) {
 		this.etc = etc;
 	}
-	
+	public String getStartTime() {
+		return startTime;
+	}
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+	public String getResMiddleTime() {
+		return resMiddleTime;
+	}
+	public void setResMiddleTime(String middleTime) {
+		this.resMiddleTime = middleTime;
+	}
+	public String getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
 	
 	@Override
 	public String toString() {
-		return "Eq_resv [resStartDate=" + resStartDate + ", resEndDate=" + resEndDate + ", am=" + am + ", pm=" + pm
-				+ ", resv_seq=" + resv_seq + ", eq_seq=" + eq_seq + ", user_id=" + user_id + ", resv_dae=" + resv_dae
-				+ ", am_pm=" + am_pm + ", contents=" + contents + ", operation=" + operation + ", expt_id=" + expt_id
-				+ ", comm_type=" + comm_type + ", comm_seq=" + comm_seq + ", reg_date=" + reg_date + ", update_date="
-				+ update_date + ", report_yn=" + report_yn + ", after_use=" + after_use + ", before_use=" + before_use
+		return "Eq_resv [resStartDate=" + resStartDate + ", resMiddleTime=" + resMiddleTime + ", resEndDate="
+				+ resEndDate + ", startTime=" + startTime + ", endTime=" + endTime + ", resv_seq=" + resv_seq
+				+ ", eq_seq=" + eq_seq + ", user_id=" + user_id + ", resv_dae=" + resv_dae + ", am_pm=" + am_pm
+				+ ", contents=" + contents + ", operation=" + operation + ", expt_id=" + expt_id + ", comm_type="
+				+ comm_type + ", comm_seq=" + comm_seq + ", reg_date=" + reg_date + ", update_date=" + update_date
+				+ ", report_yn=" + report_yn + ", after_use=" + after_use + ", before_use=" + before_use
 				+ ", eq_condition=" + eq_condition + ", sample_nm_num=" + sample_nm_num + ", disposal=" + disposal
 				+ ", resv_state=" + resv_state + ", etc=" + etc + "]";
 	}
+	
+
+	
+	
+
 	
 	
 

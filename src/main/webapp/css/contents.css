@@ -162,6 +162,7 @@ input.ifile {border:none; background:none; margin:0; padding:0; width:50%;}
 .paging a.r_btn {color:#eee; background-color:#fff; border:1px solid #eee; margin-left:3px;}
 .paging a.l_btn:hover,
 .paging a.r_btn:hover {color:#989fd1; border:1px solid #d7d9e6;}
+.paging li {float: left;}
 
 /* 팝업 */
 #popup_box {
@@ -260,11 +261,10 @@ input.ifile {border:none; background:none; margin:0; padding:0; width:50%;}
 /* 신청서 팝업 */
 .application_box {
 	position:absolute;
-	top:20px;
-	left:50%;
+	top:9px;
+	left:45%;
 	margin-left:-369px;
 	width:738px; 
-	height:600px;
 	overflow:auto;
 	padding:40px; 
 	border:1px solid #ccced2; 
@@ -279,11 +279,12 @@ input.ifile {border:none; background:none; margin:0; padding:0; width:50%;}
 .application .app_num li.bLnone {border-left:none;}
 .application .app_num li label {font-weight:bold; padding-left:30px; padding-right:30px;}
 .application input, .application textarea {border:none; padding:0; margin:0;}
-.application input.txt {width:95%; height:100%;}
-.application input.txt1 {border:none; width:75px; height:20px;}
+.application input.txt {width:95%; height:17px;}
+.application input.txt1 {border:none; width:75px; height:20px; text-align: center;}
 .application input.txt2 {border:none; width:40px; height:20px; text-align:center;}
 .application input.txt3 {border:none; width:100px; height:20px; text-align:center;}
 .application input.txt4 {border:none; width:200px; height:20px; text-align:center;}
+.application input.txt5 {border:none; width:555px; height:20px; text-align:left;}
 .application input.chk {vertical-align:-2px;}
 .application textarea.textarea1 {width:97%; height:40px;}
 .application textarea.textarea2 {width:97%; height:40px; color:#999;}

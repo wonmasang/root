@@ -15,12 +15,12 @@ import root.dto.LoginDto;
 import root.service.LoginService;
 
 @Controller
-public class login {
+public class LoginController {
 
 	@Autowired
 	LoginService loginService;
 	
-	//�α���
+	
 	@RequestMapping(value="/main.do", method=RequestMethod.POST)
 	public void MemberLogin(HttpSession session, LoginDto loginDto, Model model) {
 		
@@ -29,21 +29,22 @@ public class login {
 		//로그인 하면 세션에 id,type SET함.(서비스에서)
 		loginService.login(loginDto, session);
 		
-		//기업회원, 전무가 라디오박스 값 받아서 회원정보 받아오기.
+		//기업회원, 전문가 라디오박스 값 받아서 회원정보 받아오기.
 		String on = "on";
 		if(on.equals(loginDto.getCorporation())) {
 			EntrDto entrDto = loginService.entrMemberSelect(loginDto);
 			
 			System.out.println("기업회원="+entrDto.toString());
+			session.setAttribute("user_name", entrDto.getEmpl_name());
 			
-			model.addAttribute("member", entrDto);
+			
 			
 		}else if(on.equals(loginDto.getExpert())) {
 			ExptDto exptDto = loginService.exptMemberSelect(loginDto);
 			
 			System.out.println("전문가="+exptDto.toString());
+			session.setAttribute("user_name", exptDto.getExpt_name());
 			
-			model.addAttribute("member", exptDto);
 		}
 		
 		
